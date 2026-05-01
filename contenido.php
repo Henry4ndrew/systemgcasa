@@ -6,6 +6,7 @@ $paginasPermitidas = [
     'ventas_historial.php' => 'paginas/ventas_historial.php',
     'stock_productos.php' => 'paginas/stock_productos.php',
     'stock_tienda.php' => 'paginas/stock_tienda.php',
+    'stock_ferias.php' => 'paginas/stock_ferias.php',
     'stock_materiales.php' => 'paginas/stock_materiales.php',
     'stock_materiales_historial.php' => 'paginas/stock_materiales_historial.php',
     'cotiz_crear.php' => 'paginas/cotiz_crear.php',

@@ -13,9 +13,10 @@
 *.bak
 
 # =========================
-# 📁 Carpeta originals
+# 📁 Carpetas
 # =========================
-/originals/
+/products/
+/pdf/
 
 # =========================
 # 🔐 Archivos sensibles (conexiones)

@@ -51,6 +51,10 @@
                 <i class="fa-solid fa-warehouse f-gold"></i>
                 <p class="f-move">Stock Tienda</p>
             </button>
+            <button class="btn-menu" id="btn-stock_ferias" onclick="cargarPagina('stock_ferias.php')" data-page="stock_ferias">
+                <i class="fa-solid fa-warehouse f-gold"></i>
+                <p class="f-move">Stock Ferias</p>
+            </button>
             <button class="btn-menu" id="btn-stock_materiales" onclick="cargarPagina('stock_materiales.php')" data-page="stock_materiales">
                 <i class="fa-solid fa-warehouse f-gold"></i>
                 <p class="f-move">Stock materiales</p>
