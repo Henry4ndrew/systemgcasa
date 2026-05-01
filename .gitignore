@@ -1,0 +1,56 @@
+# =========================
+# 📦 Archivos comprimidos
+# =========================
+*.zip
+*.rar
+*.tar
+*.gz
+
+# =========================
+# 🗄️ Backups / Bases de datos
+# =========================
+*.sql
+*.bak
+
+# =========================
+# 📁 Carpeta originals
+# =========================
+/originals/
+
+# =========================
+# 🔐 Archivos sensibles (conexiones)
+# =========================
+includes/conexion.php
+includes/conexion-c-panel.php
+
+# =========================
+# ⚙️ Configuraciones locales
+# =========================
+.env
+.env.*
+
+# =========================
+# 🧾 Logs
+# =========================
+*.log
+logs/
+*.tmp
+
+# =========================
+# 🖥️ Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# 🧰 Editores / IDE
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# 📂 Dependencias (si usas)
+# =========================
+/node_modules/
+/vendor/
