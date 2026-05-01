@@ -3,16 +3,21 @@
 
 
 <h3 class="b-naranja f-white pad-left20">Registrar venta</h3>
-<div class="b-azul pad20 cont-elemts">
-    <div class="search-box">
+<div class="b-azul pad20 flex-between">
+    <div class="search-box cont-elemts">
         <div class="input-wrapper">
             <input class="input padInput" type="text" id="search-input" oninput="buscarProducto('search-input','resultadoBusqueda')" placeholder="Ingrese nombre o código">
                 <i class="fa-solid fa-magnifying-glass"></i>
         </div>
+
+        <button class="btn-load orange" onclick="mostrarFormAcodeonExistente(); limpiarFormAcordeon();">
+           <span>Datos de la venta</span>
+        </button>
     </div>
 
+
     <!-- Scanner de código de barras via COM Port -->
-    <div class="scanner-box" id="scannerBox">
+    <div class="scanner-box" id="scannerBox"">
         <div class="scanner-panel">
             <div class="scanner-header">
                 <i class="fa-solid fa-barcode scanner-icon"></i>
@@ -38,17 +43,12 @@
             <span id="lastScanText"></span>
         </div>
     </div>
-
-<button class="btn-load orange" onclick="mostrarFormAcodeonExistente(); limpiarFormAcordeon();">
-    <span>Datos de la venta</span>
-</button>
 </div>
 
 <!-- Estilos del scanner COM -->
 <style>
 .scanner-box {
-    width: 100%;
-    margin-top: 5px;
+    width: 350px;
 }
 .scanner-panel {
     display: flex;
@@ -211,6 +211,47 @@
     .scanner-actions {
         width: 100%;
         justify-content: center;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .scanner-box {
+        max-width: 280px;
+    }
+
+    .scanner-panel {
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 10px;
+    }
+
+    .scanner-icon {
+        font-size: 1.5rem;
+    }
+
+    .scanner-title {
+        font-size: 0.75rem;
+    }
+
+    .scanner-text {
+        font-size: 0.65rem;
+    }
+
+    .btn-scanner {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+
+    .scanner-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .scanner-last-scan {
+        font-size: 0.7rem;
+        padding: 5px 10px;
     }
 }
 </style>

@@ -8,6 +8,7 @@ $mapa_permisos = [
     'ventas_historial.php'  => ['administrador', 'ventas'],
     'stock_productos.php'   => ['administrador', 'ventas'],
     'stock_tienda.php'      => ['administrador', 'ventas'],
+    'stock_ferias.php'      => ['administrador', 'ventas'],
     'stock_materiales.php'  => ['administrador', 'ventas'],
     'stock_materiales_historial.php'  => ['administrador', 'ventas'],
     'cotiz_crear.php'       => ['administrador', 'ventas'],

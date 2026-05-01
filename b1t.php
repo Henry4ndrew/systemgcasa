@@ -381,7 +381,7 @@ body {
 
     
 <!-- AAqui van los scripts -->
-<script src="js/lateral18.js"></script>
+<script src="js/lateral19.js"></script>
 <script src="js/global14.js"></script>
 <?php $ventaCotizVer = file_exists(__DIR__ . '/js/venta-cotiz13.js') ? filemtime(__DIR__ . '/js/venta-cotiz13.js') : time(); ?>
 <script src="js/venta-cotiz13.js?v=<?php echo $ventaCotizVer; ?>"></script>

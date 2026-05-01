@@ -135,6 +135,7 @@ function pintarBotonActivo(nombreArchivo) {
         'stock_productos.php': 'stock_productos',
         'stock_tienda.php': 'stock_tienda',
         'stock_materiales.php': 'stock_materiales',
+        'stock_ferias.php': 'stock_ferias',
         'stock_materiales_historial.php': 'stock_materiales',
         
         // Cotizaciones
