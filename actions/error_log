@@ -1,0 +1,327 @@
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Número de detalles de venta: 4
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Procesando producto: Código=JDST400, ID Detalle=39, Cantidad=3
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Procesando producto: Código=CUBRT450, ID Detalle=66, Cantidad=1
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Procesando producto: Código=ALM250, ID Detalle=105, Cantidad=2
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto existe en almacen. ID: 14, Actual: -48, Nueva: -50
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Procesando producto: Código=JUETO200, ID Detalle=220, Cantidad=1
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto existe en almacen. ID: 76, Actual: -30, Nueva: -31
+[24-Feb-2026 12:40:10 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Número de detalles de venta: 3
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Procesando producto: Código=ALM450, ID Detalle=453, Cantidad=20
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 94, Actual: 0, Nueva: -20
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Procesando producto: Código=SAB-PLANA450, ID Detalle=445, Cantidad=13
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=91, Cantidad=12
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 63, Actual: -264, Nueva: -276
+[24-Feb-2026 16:51:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Número de detalles de venta: 9
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=JDST160, ID Detalle=108, Cantidad=2
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 37, Actual: -147, Nueva: -149
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=JDST160, ID Detalle=109, Cantidad=2
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 39, Actual: -3, Nueva: -5
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=44, Cantidad=2
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 67, Actual: -13, Nueva: -15
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=112, Cantidad=2
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 43, Actual: -17, Nueva: -19
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=113, Cantidad=2
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 44, Actual: 0, Nueva: -2
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=114, Cantidad=2
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=89, Cantidad=1
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 70, Actual: -120, Nueva: -121
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=90, Cantidad=1
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 83, Actual: -70, Nueva: -71
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=91, Cantidad=1
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto existe en almacen. ID: 63, Actual: -276, Nueva: -277
+[25-Feb-2026 09:48:18 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Número de detalles de venta: 7
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=89, Cantidad=24
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto existe en almacen. ID: 70, Actual: -121, Nueva: -145
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=92, Cantidad=24
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto existe en almacen. ID: 64, Actual: -106, Nueva: -130
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=91, Cantidad=72
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto existe en almacen. ID: 63, Actual: -277, Nueva: -349
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Procesando producto: Código=DUVT450, ID Detalle=71, Cantidad=24
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto existe en almacen. ID: 95, Actual: 0, Nueva: -24
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Procesando producto: Código=DUVT450, ID Detalle=73, Cantidad=14
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto existe en almacen. ID: 52, Actual: -44, Nueva: -58
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=43, Cantidad=2
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto existe en almacen. ID: 50, Actual: -41, Nueva: -43
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Procesando producto: Código=PDCTA, ID Detalle=81, Cantidad=2
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[25-Feb-2026 10:16:21 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Número de detalles de venta: 10
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=JDST160, ID Detalle=108, Cantidad=2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 37, Actual: -147, Nueva: -149
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=JDST160, ID Detalle=109, Cantidad=2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 39, Actual: -3, Nueva: -5
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=44, Cantidad=2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 67, Actual: -13, Nueva: -15
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=112, Cantidad=2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 43, Actual: -17, Nueva: -19
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=113, Cantidad=2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 44, Actual: 0, Nueva: -2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=114, Cantidad=2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 101, Actual: 0, Nueva: -2
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=89, Cantidad=1
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 70, Actual: -144, Nueva: -145
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=90, Cantidad=1
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 83, Actual: -70, Nueva: -71
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=91, Cantidad=1
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 63, Actual: -348, Nueva: -349
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Procesando producto: Código=FALT180, ID Detalle=76, Cantidad=1
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto existe en almacen. ID: 58, Actual: -18, Nueva: -19
+[25-Feb-2026 16:21:56 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Número de detalles de venta: 12
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=42, Cantidad=16
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 68, Actual: -12, Nueva: -28
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=43, Cantidad=20
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 50, Actual: -43, Nueva: -63
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=44, Cantidad=8
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 67, Actual: -15, Nueva: -23
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=112, Cantidad=6
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 43, Actual: -19, Nueva: -25
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=113, Cantidad=8
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 44, Actual: -2, Nueva: -10
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=114, Cantidad=4
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 101, Actual: -2, Nueva: -6
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=91, Cantidad=32
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 63, Actual: -349, Nueva: -381
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=90, Cantidad=32
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 83, Actual: -71, Nueva: -103
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=89, Cantidad=32
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 70, Actual: -145, Nueva: -177
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=COLPDG150, ID Detalle=128, Cantidad=8
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 78, Actual: -10, Nueva: -18
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=COLPDG150, ID Detalle=129, Cantidad=10
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto existe en almacen. ID: 79, Actual: -10, Nueva: -20
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Procesando producto: Código=COLPDG150, ID Detalle=130, Cantidad=6
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[03-Mar-2026 15:21:54 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[13-Mar-2026 18:35:18 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[13-Mar-2026 18:35:26 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[13-Mar-2026 18:35:49 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[16-Mar-2026 16:38:16 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[16-Mar-2026 16:38:16 America/La_Paz] DEBUG - Número de detalles de venta: 1
+[16-Mar-2026 16:38:16 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[16-Mar-2026 16:38:16 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=92, Cantidad=50
+[16-Mar-2026 16:38:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[16-Mar-2026 16:38:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 64, Actual: -130, Nueva: -180
+[16-Mar-2026 16:38:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[25-Mar-2026 18:50:45 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[09-Apr-2026 14:40:00 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[09-Apr-2026 14:40:27 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[09-Apr-2026 14:40:44 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[09-Apr-2026 14:41:09 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[09-Apr-2026 15:31:09 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Número de detalles de venta: 2
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=89, Cantidad=100
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Producto existe en almacen. ID: 70, Actual: -177, Nueva: -277
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=90, Cantidad=66
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Producto existe en almacen. ID: 83, Actual: 768, Nueva: 702
+[09-Apr-2026 11:51:46 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:52:34 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[09-Apr-2026 11:52:34 America/La_Paz] DEBUG - Número de detalles de venta: 1
+[09-Apr-2026 11:52:34 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[09-Apr-2026 11:52:34 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=90, Cantidad=34
+[09-Apr-2026 11:52:34 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:52:34 America/La_Paz] DEBUG - Producto existe en almacen. ID: 83, Actual: 702, Nueva: 668
+[09-Apr-2026 11:52:34 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Número de detalles de venta: 3
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=91, Cantidad=40
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Producto existe en almacen. ID: 63, Actual: 80, Nueva: 40
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=92, Cantidad=40
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Producto existe en almacen. ID: 64, Actual: -180, Nueva: -220
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=90, Cantidad=40
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Producto existe en almacen. ID: 83, Actual: 668, Nueva: 628
+[09-Apr-2026 11:54:52 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Número de detalles de venta: 16
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=42, Cantidad=16
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 68, Actual: -28, Nueva: -44
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=43, Cantidad=20
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 50, Actual: -63, Nueva: -83
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=JDST450, ID Detalle=44, Cantidad=8
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 67, Actual: -23, Nueva: -31
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=112, Cantidad=6
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 43, Actual: -25, Nueva: -31
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=113, Cantidad=8
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 44, Actual: -10, Nueva: -18
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=CUBRECOL150, ID Detalle=114, Cantidad=4
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 101, Actual: -6, Nueva: -10
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=91, Cantidad=32
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 63, Actual: 40, Nueva: 8
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=90, Cantidad=32
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 83, Actual: 628, Nueva: 596
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=89, Cantidad=32
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 70, Actual: -277, Nueva: -309
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=COLPDG150, ID Detalle=128, Cantidad=8
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 78, Actual: -18, Nueva: -26
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=COLPDG150, ID Detalle=129, Cantidad=10
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 79, Actual: -20, Nueva: -30
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=COLPDG150, ID Detalle=130, Cantidad=6
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto existe en almacen. ID: 103, Actual: -6, Nueva: -12
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=CUBRT400, ID Detalle=60, Cantidad=16
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=CUBRT400, ID Detalle=61, Cantidad=20
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=CUBRT400, ID Detalle=62, Cantidad=12
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Procesando producto: Código=SAL-BAN001, ID Detalle=477, Cantidad=36
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[09-Apr-2026 11:56:16 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Ambiente venta recibido: Fabrica
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Número de detalles de venta: 2
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Ambiente venta para restar: Fabrica
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=89, Cantidad=50
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Producto existe en almacen. ID: 70, Actual: -309, Nueva: -359
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Producto actualizado en almacen exitosamente
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Procesando producto: Código=TOA500, ID Detalle=484, Cantidad=20
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Tabla de almacén seleccionada: almacen
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Producto NO existe en almacen. Insertando nuevo registro con cantidad negativa
+[09-Apr-2026 12:06:38 America/La_Paz] DEBUG - Producto insertado en almacen exitosamente
+[27-Apr-2026 18:16:13 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5
+[27-Apr-2026 18:16:21 UTC] PHP Notice:  Undefined index: id_detalle_prod in /home/gcasaclub/system.gcasaclub.com/actions/eliminar_detail_prod.php on line 5

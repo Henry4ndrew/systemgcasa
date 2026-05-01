@@ -1,0 +1,260 @@
+/* 
+  Panel de objetos
+  Elementos 
+  Buscadores 
+  Selects filtros
+  Tabla
+*/
+
+.panel{
+  width:100%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+@media (max-width: 768px) {
+  .panel{
+    width: 1000px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1250px) {
+  .panel{
+    width: 1080px;
+  }
+}
+/* Usado para el buscador de productos al realizar una venta o cotizacion */
+.panelProductos {
+    padding: 20px;
+    width:100%;
+    margin: 0 auto;
+    background:#cdcdcd;
+}
+.pestana{
+  padding:10px 25px;
+  font-size:1rem;
+  border: 1px solid white;
+  border-bottom:none;
+  border-radius:15px 15px 0 0;
+}
+
+
+
+.cont-elemts{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+
+.btn-sup{
+    border-radius:var(--rad2);
+    padding:var(--pad);
+    color:white;
+    border:2px solid rgba(197, 197, 195, 0.5);
+}
+
+
+
+/* Buscador */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-wrapper i.fa-magnifying-glass{
+    position: absolute;
+    left: 12px;
+    color: orange;
+    font-size: 1rem;
+}
+.input-wrapper input {
+    padding: 10px 15px 10px 35px;
+    font-size: 0.9rem;
+}
+
+
+/* Filtro combobox */
+.filtro-box{
+    display:flex;
+    flex-direction:column;
+    margin-top:-15px;
+    background:rgba(255, 255, 255, 0.2);
+    padding:3px 10px;
+    padding-bottom:7px;
+    border-radius:var(--rad);
+}
+.filtro-box label{
+    font-size:0.8rem;
+    color:white;
+}
+.filtro-box select{
+    padding:8px;
+    border-radius: 10px;
+    border:2px solid #cdcdcd;
+}
+@media (max-width: 768px) {
+    .filtro-box{
+        margin-top:0;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Estilo de la tabla */
+.campo-tabla {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tablaStyle, .tabla-detalles {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  background-color: white; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px;
+}
+.tablaStyle th,
+.tablaStyle td {
+  z-index:1;
+  border: 2px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+.tablaStyle th {
+  background: var(--orange-meta);
+  border: 1px solid white;
+  color:white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: sticky;
+}
+
+.tablaStyle tr:nth-child(even) {
+  background-color: #f0f0f0; 
+}
+.tablaStyle tr:nth-child(odd) {
+  background-color: white; 
+}
+.tablaStyle tr:hover {
+  background-color: beige; 
+  transition: background-color 0.3s ease; 
+}
+@media (max-width: 768px) {
+  .tablaStyle th,
+  .tablaStyle td {
+      padding: 5px;
+  }
+}
+
+.h-celda{
+  max-height:90px;
+  overflow-y:auto;
+}
+.hora {
+  color: #666;
+  font-size: 0.9em;
+}
+
+
+
+
+
+
+    /* 
+    hitorial_ventas
+    Medidas especiales para el ancho de columnas de las tablas en la grande y la de detalles de una venta
+     */
+    .col2-peq th:nth-child(2),
+    .col2-peq td:nth-child(2) {
+        max-width: 180px;
+    }
+
+
+    
+
+/* Botones semi-invisbles usados dentro de la tabla */
+.btn-invi{
+    padding:3px 7px;
+    border:1px solid white;
+    border-radius:5px;
+    background:#f0f0f0;
+    color:rgba(3, 33, 131, 0.8);
+}
+.btn-invi:hover{
+   background:#cdcdcd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Cuadros independientes dentro del sistema */
+.panel-2elem{
+    width:100%;
+}
+.cont-2elem{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    width:1100px;
+}
+@media (max-width: 768px) {
+    .panel-2elem{
+        width:500px;
+    }
+    .cont-2elem{
+      width:500px;
+    }
+}
+
+.bloqueSolo{
+    width:470px;
+    margin-top:10px;
+    border-radius:var(--rad);
+    box-shadow:var(--s);
+}
+
+
+.galeria-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(2, 2, 2, 0.2);
+        border-radius: 12px;
+        margin: 12px;
+}
+.imagen-container {
+    position: relative;
+    width: 180px;
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+
+
+.img-peque{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    background:#f0f0f0;
+}

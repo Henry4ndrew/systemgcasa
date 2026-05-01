@@ -1,0 +1,318 @@
+/* 
+    Global
+    Universales
+    anchos width
+    fondos 
+    Textos, iconos
+    Tamaños
+    botones-load
+*/
+
+:root{
+ --orange-meta: linear-gradient(135deg, #b35400, #e67c00, #ff9800, #e67c00, #b35400);
+ --blue-meta:linear-gradient(135deg, #1e3a5f, #2c5282, #4a7bac, #2c5282, #1e3a5f);
+ --gold: linear-gradient(135deg, #daa520, #ffd700, #b8860b, #ffdf00, #daa520);
+
+  --s: 0 3px 6px rgba(0, 0, 0, 0.3);
+  --s2: 0 8px 20px rgba(0, 0, 0, 0.4);
+  --txt-sh: 2px 2px 4px rgba(0, 0, 0, 0.4);
+
+  --rad: 15px;
+  --rad2: 25px;
+  --pad: 10px 12px;
+}
+
+
+
+/* Universales */
+button{
+  cursor:pointer;
+}
+.centrar{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.column{
+ display:flex;
+ flex-direction:column;
+}
+.wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+}
+.flex-between{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.pad10{
+    padding:10px;
+}
+.pad20{
+    padding:20px;
+}
+.pad-left20{
+    padding-left:20px;
+}
+.gap05{
+    display:flex; gap:0.5rem;
+}
+.gap10{
+    gap:10px;
+}
+.m-top{
+    margin-top:20px;
+}
+.m-left{
+    margin-left:20px;
+}
+.m-right180 {
+  margin-right:180px;
+}
+.m-right50{
+  margin-right:50px;
+}
+.top105 th{
+    top: 105px; /* Pocisión de la cabecera de la tabla */ 
+}
+.pad0-5{
+    padding:0px 5px;
+}
+.pad-right-20{
+    padding-right:20px;
+}
+.padSpace{
+    background:#f0f0f0;
+    padding:25px;
+}
+.bordear{
+    border-radius:15px; border:1px solid #cdcdcd; padding:5px 10px;
+}
+
+
+
+
+
+/* anchos width */
+.w10{
+  width:10%;
+}
+.w70{
+  width:70%;
+}
+.w20{
+  width:20%;
+}
+.w25{
+    width:25%;
+}
+.w40{
+  width:40%;  
+}
+.w46{
+    width:46%;
+}
+.w60{
+    width:60%;
+}
+.w100{
+    width: 100%;
+}
+
+
+
+/* fondos */
+.b-azul {
+    background: var(--blue-meta);
+}
+.b-naranja {
+    background: var(--orange-meta);
+}
+.b-gold {
+    background: var(--gold);
+}
+.b-blank{
+    background:#f0f0f0; 
+}
+.b-blank:hover{
+    background:white;
+}
+/* Formas */
+.vidrio{
+    background: rgba(255, 255, 255, 0.05);
+     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--s);
+    transition: all 0.3s ease;
+}
+.vidrio:hover{
+  box-shadow:var(--s2);
+}
+
+
+
+
+
+/* Textos, iconos */
+.f-move{
+  margin-left:7px;
+  color:White;
+}
+.f-gold {
+    background: var(--gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.4));
+}
+.f-white{
+    color:white;
+    text-shadow:var(--txt-sh);
+}
+.f-plomo{
+ color:#333;
+}
+.f-999{
+    color:#999;
+}
+.f-center{
+    text-align:center;
+}
+.f-justify{
+    display:flex;
+    justify-content:center;
+}
+.f-align{
+    display:flex;
+    align-items:center;
+}
+.f-peq-1{
+ font-size:0.8rem;
+}
+.f-peq{
+ font-size:0.9rem;
+}
+.f-med{
+ font-size: 1.2rem;
+}
+.f-grande{
+ font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Botones btn-load*/
+.btn-load {
+    padding: 7px 10px;
+    font-size: 1rem;
+    border-radius:var(--rad2);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    color:white;
+    z-index: 1;
+    justify-content: center;
+    border: 1px solid gold;
+    box-shadow:var(--s);
+    background: var(--orange-meta);
+}
+.btn-load::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: width 0.5s ease;
+    border-radius: 50px;
+    z-index: 0;
+    pointer-events: none;
+}
+.btn-load:hover::before {
+    width: 100%;
+}
+.btn-load > span {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+}
+.btn-load:hover {
+    border-color: yellow;
+    text-shadow: var(--txt-sh);
+    box-shadow:var(--s2);
+}
+/*fin estilo boton*/
+.orange::before{
+    background: linear-gradient(120deg, maroon, gold, #e74c3c);
+}
+/*Verde*/
+.verde::before{
+    background: linear-gradient(120deg, green, rgb(0, 107, 0), rgb(0, 211, 0));
+}
+/*Azul*/
+.azul::before{
+    background: linear-gradient(120deg, rgb(0, 0, 116), blue, rgb(0, 138, 202));
+}
+.rojo::before{
+    background: linear-gradient(120deg, rgb(116, 0, 0), red, orangered);
+}
+.gold::before{
+  background: var(--gold);
+}
+
+
+.btn-esquina{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+}
+
+
+/* btn icono de basurero eliminar */
+.btn-remove{
+  padding:7px;
+  color:white;
+  border-radius:7px;
+  transition: background 0.3s ease;
+  background:red;
+  border:none;
+}
+.btn-remove:hover{
+    background:orange;
+}
+
+
+
+
+
+
+
+
+/* Estilo de un producto dentro de una lista de carrito de compras */
+.img-product-carro{
+   width: 100%; object-fit: cover; border-radius: 7px;
+   max-height:120px;
+}
