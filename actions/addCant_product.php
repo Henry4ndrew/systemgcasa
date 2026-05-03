@@ -78,10 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['mensaje_tipo'] = "error";
     }
 
-    // Cerrar conexión
     $conexion->close();
-
-    // Redirigir
     header("Location: ../b1t.php?p=stock_productos.php");
     exit;
 }

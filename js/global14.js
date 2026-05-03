@@ -107,41 +107,29 @@ function formatearDecimal(precio) {
 
 
 // Script para mostrar formularios en general mostrarForm =========================================
-function mostrarForm(id){
-  const form = document.getElementById(id);
-  form.reset();
-  const txtForm = document.getElementById('txt-' + id);
-  if(id === 'formCliente'){
-    txtForm.textContent = "Registrar Cliente";
-    gestionarBtns('formCliente' , 'guardar');
-  } else if(id === 'formProducto'){
-     txtForm.textContent = "Crear producto";
-     document.getElementById("imagen").required = true;
-     document.getElementById('imagen').value = "";
-     imagenesSeleccionadas.items.clear();
-     document.getElementById('imagePreviewContainer').innerHTML = '';
-  } else if(id === 'formUser'){
-    txtForm.textContent = "Registrar Usuario";
-    gestionarBtns('formUser' , 'guardar');
-  } else if(id === 'formPortada'){
-     txtForm.textContent = "Agregar portada";
-     gestionarBtns('formPortada' , 'guardar');
-     limpiarImagen('imagen', 'areaImg');
-  } else if(id === 'formDetailProd'){
-     txtForm.textContent = "Agregar detalle al producto";
-     gestionarBtns('formDetailProd' , 'guardar');
-  } else if(id == 'formMateria'){
-     txtForm.textContent = "Crear materia prima";
-     gestionarBtns('formMateria' , 'guardar');
-     crearInputMedida('tipo_medida', 'mostrarMaterial_medida');
-      limpiarImagen('imagenMaterial', 'areaImgMaterial');
-  } else if(id === 'formBank'){
-     txtForm.textContent = "Registrar cuenta de banco";
-     gestionarBtns('formBank' , 'guardar');
-     document.getElementById("imagenQR").required = true;
-  }
-  form.style.display = 'block';
-}
+//AQUI PEGAR LAFUN CION MOSTRAR FORM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Muestra el formulario con buscador y campo html usado en almacen para agregar productos o materia prima
 function mostrarFormBuscador(idForm, idContenedor) {

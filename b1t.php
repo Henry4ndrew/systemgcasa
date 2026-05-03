@@ -395,7 +395,59 @@ body {
 
 
 
+<script>
+    function mostrarForm(id){
+  const form = document.getElementById(id);
+  form.reset();
+  const txtForm = document.getElementById('txt-' + id);
+  if(id === 'formCliente'){
+    txtForm.textContent = "Registrar Cliente";
+    gestionarBtns('formCliente' , 'guardar');
+  } else if(id === 'formProducto'){
+     txtForm.textContent = "Crear producto";
+     document.getElementById("imagen").required = true;
+     document.getElementById('imagen').value = "";
+     imagenesSeleccionadas.items.clear();
+     document.getElementById('imagePreviewContainer').innerHTML = '';
+  } else if(id === 'formUser'){
+    txtForm.textContent = "Registrar Usuario";
+    gestionarBtns('formUser' , 'guardar');
+  } else if(id === 'formPortada'){
+     txtForm.textContent = "Agregar portada";
+     gestionarBtns('formPortada' , 'guardar');
+     limpiarImagen('imagen', 'areaImg');
+  } else if(id === 'formDetailProd'){
+     txtForm.textContent = "Agregar detalle al producto";
+     gestionarBtns('formDetailProd' , 'guardar');
+  } else if(id == 'formMateria'){
+     txtForm.textContent = "Crear materia prima";
+     gestionarBtns('formMateria' , 'guardar');
+     crearInputMedida('tipo_medida', 'mostrarMaterial_medida');
+      limpiarImagen('imagenMaterial', 'areaImgMaterial');
+  } else if(id === 'formBank'){
+     txtForm.textContent = "Registrar cuenta de banco";
+     gestionarBtns('formBank' , 'guardar');
+     document.getElementById("imagenQR").required = true;
+  } else if(id === 'formFerias'){
+      txtForm.textContent = "Registrar feria";
+      gestionarBtns('formFerias' , 'guardar');
+  }
+  form.style.display = 'block';
+}
 
+function editarFeria (idFeria, nombreFeria){
+    plop('formFerias');
+
+    gestionarBtns('formFerias' , 'editar');
+    const titulo = document.getElementById('txt-formFerias');
+    titulo.textContent = 'Editar nombre de feria';
+
+    document.getElementById('id-feria').value = idFeria;
+    document.getElementById('nombre_feria').value = nombreFeria;
+    document.getElementById('btn1-formFerias').style.display = 'none';
+    document.getElementById('btn2-formFerias').style.display = 'inline-block';
+}
+</script>
 
 
 
