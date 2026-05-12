@@ -56,6 +56,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fechaVenta = date('Y-m-d H:i:s');
     $lugarVenta = $_POST['ambiente_venta'];
 
+    $idFeria = null;
+    if ($lugarVenta === 'Feria') { 
+        $idFeria = $_POST['feria_id'] ?? null;
+        if (!$idFeria) {
+            $_SESSION['mensaje'] = "Error: Debe seleccionar una feria para ventas en Feria.";
+            header("Location: ../b1t.php?p=ventas_registro.php");
+            exit;
+        }
+    }
+
     $tipoDescuento = $_POST['tipoDescuento']; 
     $descuentoMonto = $_POST['descuentoMonto']; 
     $descuentoPorcentaje = $_POST['descuentoPorcentaje'];
@@ -113,42 +123,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
 
 
-                    
 
-
-
-
-
-
-                     // ===========================================
+                    // ===========================================
                     // DESCONTAR PRODUCTOS DEL ALMACÉN SEGÚN LUGAR DE VENTA
                     // ===========================================
-                    
+
                     $tablaAlmacen = '';
-                    $campoId = '';
 
-
-                    // ===========================================
-                    // DESCONTAR PRODUCTOS DEL ALMACÉN SEGÚN LUGAR DE VENTA
-                    // ===========================================
-                    
                     // MODIFICACIÓN: Determinar de qué tabla descontar según el lugar de venta
-                    if ($lugarVenta === 'Fabrica' || $lugarVenta === 'Tienda') {
-                        // Definir tabla y campo según el lugar de venta
+                    if ($lugarVenta === 'Fabrica' || $lugarVenta === 'Tienda' || $lugarVenta === 'Feria') {  // Cambiado 'Ferias' a 'Feria'
+                        // Definir tabla según el lugar de venta
                         if ($lugarVenta === 'Fabrica') {
                             $tablaAlmacen = 'almacen';
                         } elseif ($lugarVenta === 'Tienda') {
                             $tablaAlmacen = 'almacen_tienda';
+                        } elseif ($lugarVenta === 'Feria') {  // Cambiado 'Ferias' a 'Feria'
+                            $tablaAlmacen = 'almacen_ferias';
                         }
                         
                         // La cantidad a descontar (convertir a negativo para almacén)
                         $cantidadADescontar = -$cantidad;
                         
                         // MODIFICACIÓN: Buscar producto en la tabla correspondiente
-                        $sqlBuscarAlmacen = "SELECT id_almacen, cantidad FROM $tablaAlmacen 
-                                             WHERE codigo = ? AND id_detalle = ?";
-                        $stmtBuscar = $conexion->prepare($sqlBuscarAlmacen);
-                        $stmtBuscar->bind_param("si", $codigoProducto, $idDetalle);
+                        if ($lugarVenta === 'Feria') {  // Cambiado 'Ferias' a 'Feria'
+                            // Para ferias, debemos buscar también por id_feria
+                            $sqlBuscarAlmacen = "SELECT id_almacen, cantidad FROM $tablaAlmacen 
+                                                WHERE codigo = ? AND id_detalle = ? AND id_feria = ?";
+                            $stmtBuscar = $conexion->prepare($sqlBuscarAlmacen);
+                            $stmtBuscar->bind_param("sii", $codigoProducto, $idDetalle, $idFeria);
+                        } else {
+                            // Para fábrica y tienda, buscar solo por código y detalle
+                            $sqlBuscarAlmacen = "SELECT id_almacen, cantidad FROM $tablaAlmacen 
+                                                WHERE codigo = ? AND id_detalle = ?";
+                            $stmtBuscar = $conexion->prepare($sqlBuscarAlmacen);
+                            $stmtBuscar->bind_param("si", $codigoProducto, $idDetalle);
+                        }
+                        
                         $stmtBuscar->execute();
                         $resultadoAlmacen = $stmtBuscar->get_result();
                         
@@ -164,14 +174,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // MODIFICACIÓN: Actualizar en la tabla correspondiente
                             if ($lugarVenta === 'Fabrica') {
                                 $sqlActualizarAlmacen = "UPDATE almacen SET cantidad = ? 
-                                                         WHERE id_almacen = ?";
+                                                        WHERE id_almacen = ?";
+                                $stmtActualizar = $conexion->prepare($sqlActualizarAlmacen);
+                                $stmtActualizar->bind_param("ii", $nuevaCantidad, $idAlmacen);
                             } elseif ($lugarVenta === 'Tienda') {
                                 $sqlActualizarAlmacen = "UPDATE almacen_tienda SET cantidad = ?, fecha_modificacion = NOW() 
-                                                         WHERE id_almacen = ?";
+                                                        WHERE id_almacen = ?";
+                                $stmtActualizar = $conexion->prepare($sqlActualizarAlmacen);
+                                $stmtActualizar->bind_param("ii", $nuevaCantidad, $idAlmacen);
+                            } elseif ($lugarVenta === 'Feria') {  // Cambiado 'Ferias' a 'Feria'
+                                $sqlActualizarAlmacen = "UPDATE almacen_ferias SET cantidad = ?, fecha_modificacion = NOW() 
+                                                        WHERE id_almacen = ?";
+                                $stmtActualizar = $conexion->prepare($sqlActualizarAlmacen);
+                                $stmtActualizar->bind_param("ii", $nuevaCantidad, $idAlmacen);
                             }
-                            
-                            $stmtActualizar = $conexion->prepare($sqlActualizarAlmacen);
-                            $stmtActualizar->bind_param("ii", $nuevaCantidad, $idAlmacen);
                             
                             if (!$stmtActualizar->execute()) {
                                 $_SESSION['mensaje'] = "Error al actualizar $tablaAlmacen para producto: " . $stmtActualizar->error;
@@ -183,14 +199,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             // MODIFICACIÓN: Insertar en la tabla correspondiente
                             if ($lugarVenta === 'Fabrica') {
                                 $sqlInsertarAlmacen = "INSERT INTO almacen (codigo, id_detalle, cantidad) 
-                                                       VALUES (?, ?, ?)";
+                                                    VALUES (?, ?, ?)";
                                 $stmtInsertar = $conexion->prepare($sqlInsertarAlmacen);
                                 $stmtInsertar->bind_param("sii", $codigoProducto, $idDetalle, $cantidadADescontar);
                             } elseif ($lugarVenta === 'Tienda') {
                                 $sqlInsertarAlmacen = "INSERT INTO almacen_tienda (codigo, id_detalle, cantidad, fecha_modificacion) 
-                                                       VALUES (?, ?, ?, NOW())";
+                                                    VALUES (?, ?, ?, NOW())";
                                 $stmtInsertar = $conexion->prepare($sqlInsertarAlmacen);
                                 $stmtInsertar->bind_param("sii", $codigoProducto, $idDetalle, $cantidadADescontar);
+                            } elseif ($lugarVenta === 'Feria') {  // Cambiado 'Ferias' a 'Feria'
+                                $sqlInsertarAlmacen = "INSERT INTO almacen_ferias (codigo, id_detalle, cantidad, id_feria, fecha_modificacion) 
+                                                    VALUES (?, ?, ?, ?, NOW())";
+                                $stmtInsertar = $conexion->prepare($sqlInsertarAlmacen);
+                                $stmtInsertar->bind_param("siii", $codigoProducto, $idDetalle, $cantidadADescontar, $idFeria);
                             }
                             
                             if (!$stmtInsertar->execute()) {

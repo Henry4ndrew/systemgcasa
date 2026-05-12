@@ -395,7 +395,48 @@ body {
 
 
 
+
+
+
+
 <script>
+function mostrarFerias(valor) {
+    const contenedor = document.getElementById("contenedor-feria");
+    const selectFeria = document.getElementById("feria_select");
+    if (valor === "Feria") {
+        contenedor.style.display = "flex";
+        selectFeria.setAttribute("required", "required");
+        abrirPanel('pest2');
+    } else {
+        contenedor.style.display = "none";
+        selectFeria.removeAttribute("required");
+        selectFeria.value = "";
+    }
+}
+//solo abre el panel acordeon
+function abrirPanel(idPestana) {
+    const panel = document.getElementById(idPestana);
+    const header = panel.previousElementSibling;
+
+    panel.classList.add("open");
+    header.classList.add("mostrando");
+
+    const alturaReal = panel.scrollHeight;
+    const alturaMaxima = window.innerHeight * 0.53;
+
+    if (alturaReal > alturaMaxima) {
+        panel.style.maxHeight = alturaMaxima + "px";
+        panel.style.overflowY = "auto";
+    } else {
+        panel.style.maxHeight = alturaReal + "px";
+        panel.style.overflowY = "hidden";
+    }
+}
+</script>
+
+
+<script>
+
     function mostrarForm(id){
   const form = document.getElementById(id);
   form.reset();

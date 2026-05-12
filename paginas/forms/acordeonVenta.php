@@ -1,4 +1,22 @@
 
+<?php
+require 'includes/conexion.php';
+$query = "SELECT id_feria, nombre_feria 
+          FROM ferias 
+          WHERE estado = 'activo' 
+          ORDER BY nombre_feria ASC";
+
+$resultado = mysqli_query($conexion, $query);
+$ferias = [];
+if ($resultado) {
+    $ferias = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    mysqli_free_result($resultado);
+}
+mysqli_close($conexion);
+?>
+
+
+
 <form action="actions/registrarVenta.php" class="formStyle b-azul grande" method="post" id="formAcordeonVentas" onsubmit="validarFormularioAcordeon(event, 'formAcordeonVentas')" novalidate>
     <div class="cabecera">
         <h2 class="f-center">Registrar venta</h2>
@@ -24,11 +42,30 @@
 
                 <div class="mitad">
                     <div class="elem2 column">
-                        <label class="f-peq f-white" for="ambiente_venta">Lugar de venta:<span class="a">*</span></label>
-                        <select class="select pd" name="ambiente_venta" id="ambiente_venta" required>
+                        <label class="f-peq f-white" for="ambiente_venta">
+                            Lugar de venta:<span class="a">*</span>
+                        </label>
+
+                        <select class="select pd" name="ambiente_venta" id="ambiente_venta" required onchange="mostrarFerias(this.value)">
                             <option value="" selected disabled>Seleccione una opción</option>
                             <option value="Fabrica">Fábrica</option>
                             <option value="Tienda">Tienda</option>
+                            <option value="Feria">Feria</option>
+                        </select>
+                    </div>
+                    
+                    <div class="elem2 column" id="contenedor-feria" style="display:none;">
+                        <label class="f-peq f-white" for="feria_select">
+                            Nombre de feria:<span class="a">*</span>
+                        </label>
+
+                        <select class="select pd" name="feria_id" id="feria_select">
+                            <option value="" selected disabled>Seleccione una opción</option>
+                            <?php foreach ($ferias as $feria): ?>
+                                <option value="<?= $feria['id_feria']; ?>">
+                                    <?= $feria['nombre_feria']; ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="elem2 column">

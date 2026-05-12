@@ -6,7 +6,9 @@ $sqlProd = "SELECT
             a.codigo, 
             lp.codigo AS codigo_producto, 
             lp.nombre AS nombre, 
-            a.id_detalle, 
+            a.id_detalle,
+            a.id_feria,
+            f.nombre_feria,
             dp.medida, 
             dp.detalle, 
             dp.precio_unitario, 
@@ -15,6 +17,7 @@ $sqlProd = "SELECT
         FROM almacen_ferias a
         LEFT JOIN lista_productos lp ON a.codigo = lp.codigo
         LEFT JOIN detalle_producto dp ON a.id_detalle = dp.id_detalle
+        LEFT JOIN ferias f ON a.id_feria = f.id_feria 
         ORDER BY a.fecha_modificacion DESC";
 
 $resultProd = $conexion->query($sqlProd);
@@ -51,6 +54,7 @@ if ($resultProd->num_rows > 0) {
 <thead>
     <tr>
         <th>Imagen</th>
+        <th>Feria</th>
         <th>Cantidad</th>
         <th>Nombre del Producto</th>
         <th>Código</th>
@@ -79,6 +83,10 @@ if ($resultProd->num_rows > 0) {
                             echo 'No disponible';
                         }
                     ?>
+                </td>
+                <td>
+                    <span style="display:none"><?php echo htmlspecialchars($fila['id_feria'] ?: 'No especificada'); ?></span> 
+                    <?php echo htmlspecialchars($fila['nombre_feria'] ?: 'S/Nombre'); ?> 
                 </td>
                 <td>
                     <div class="f-center f-med">
