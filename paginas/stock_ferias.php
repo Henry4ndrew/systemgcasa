@@ -32,8 +32,8 @@ if ($resultProd->num_rows > 0) {
 ?>
 
 <?php include 'includes/permisos.php' ?>
-<?php include 'forms/addProduct_almacen_tienda.php' ?>
-<?php include 'forms/editCantProduct_tienda.php' ?>
+<?php include 'forms/addProduct_almacen_feria.php' ?>
+<?php include 'forms/editCantProduct_feria.php' ?>
 
 <div class="panel">
     <h3 class="b-naranja f-white pad-left20">Stock de la Tienda</h3>
@@ -111,9 +111,10 @@ if ($resultProd->num_rows > 0) {
                 <td>
                     <form action="actions/eliminar_cantidadAlmacen_tienda.php" class="formFunctions" method="post" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta cantidad del almacén?');">
                         <button type="button" class="btn-load azul"
-                            onclick='editarCantProduct(<?php 
+                            onclick='editarCantProductFeria(<?php 
                                 echo json_encode([
                                     "codigo" => $fila["codigo"],
+                                    "id_feria" => $fila["id_feria"],
                                     "id_detalle" => $fila["id_detalle"],
                                     "cantidad" => $fila["cantidad"],
                                     "nombre" => $fila["nombre"],

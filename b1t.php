@@ -413,6 +413,37 @@ function mostrarFerias(valor) {
         selectFeria.value = "";
     }
 }
+function editarCantProductFeria(producto) {
+    console.log(producto);
+    if (document.getElementById('formCantProduct')) {
+    plop('formCantProduct');
+    } else if (document.getElementById('formCantProductTienda')) {
+        plop('formCantProductTienda');
+    }
+    const productoSeleccionado = document.getElementById('producto-seleccionado');
+    
+    const precioFormateado = formatearDecimal(producto.precio);
+    if (producto) {
+
+        productoSeleccionado.innerHTML = `
+            <img src="${producto.ruta_imagen}" alt="${producto.nombre}" class="img-peq">
+            <div class="column" style="padding-left:7px;">
+                <h3>${producto.nombre || ''}</h2>
+                <p class="hora"><b>Cod:</b>${producto.codigo} - <b>Precio:</b> ${precioFormateado  || 0}</p>
+            </div>      
+            <input type="hidden" name="codigo" value="${producto.codigo}" readonly> 
+            <input type="hidden" name="idDetalle" value="${producto.id_detalle}" readonly>    
+            <input type="hidden" name="idFeria" value="${producto.id_feria}" readonly> 
+            <div class="detail-lateral">${producto.detalle}</div>
+        `;
+    } else {
+        productoSeleccionado.innerHTML = '<p class="error">Producto no encontrado</p>';
+    }
+        document.getElementById('cantidad-prod-actual').value = producto.cantidad;
+       
+}
+
+
 //solo abre el panel acordeon
 function abrirPanel(idPestana) {
     const panel = document.getElementById(idPestana);
