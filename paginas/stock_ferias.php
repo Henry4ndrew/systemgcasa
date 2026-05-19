@@ -1,6 +1,10 @@
 <?php
 require 'includes/conexion.php';
 
+// Recuperar filtro de feria desde URL
+$filtro_feria_id = isset($_GET['filtro_feria']) ? $_GET['filtro_feria'] : null;
+
+// Consulta principal CON filtro
 $sqlProd = "SELECT 
             a.id_almacen, 
             a.codigo, 
@@ -17,18 +21,38 @@ $sqlProd = "SELECT
         FROM almacen_ferias a
         LEFT JOIN lista_productos lp ON a.codigo = lp.codigo
         LEFT JOIN detalle_producto dp ON a.id_detalle = dp.id_detalle
-        LEFT JOIN ferias f ON a.id_feria = f.id_feria 
-        ORDER BY a.fecha_modificacion DESC";
+        LEFT JOIN ferias f ON a.id_feria = f.id_feria";
 
-$resultProd = $conexion->query($sqlProd);
-
+// Agregar filtro si existe y no es 'todos' (SOLO UNA VEZ)
+if ($filtro_feria_id && $filtro_feria_id !== 'todos' && is_numeric($filtro_feria_id)) {
+    $sqlProd .= " WHERE a.id_feria = " . intval($filtro_feria_id);
+}
+$sqlProd .= " ORDER BY a.fecha_modificacion DESC";
+$resultProd = mysqli_query($conexion, $sqlProd);
+if (!$resultProd) {
+    die("Error al consultar productos: " . mysqli_error($conexion));
+}
 $productos = [];
 
-if ($resultProd->num_rows > 0) {
-    while ($row = $resultProd->fetch_assoc()) {
+if (mysqli_num_rows($resultProd) > 0) {
+    while ($row = mysqli_fetch_assoc($resultProd)) {
         $productos[] = $row;
     }
 }
+mysqli_free_result($resultProd);
+
+
+$query = "SELECT id_feria, nombre_feria 
+          FROM ferias 
+          WHERE estado = 'activo' 
+          ORDER BY nombre_feria ASC";
+$resultado = mysqli_query($conexion, $query);
+$ferias = [];
+if ($resultado) {
+    $ferias = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    mysqli_free_result($resultado);
+}
+mysqli_close($conexion);
 ?>
 
 <?php include 'includes/permisos.php' ?>
@@ -36,19 +60,40 @@ if ($resultProd->num_rows > 0) {
 <?php include 'forms/editCantProduct_feria.php' ?>
 
 <div class="panel">
-    <h3 class="b-naranja f-white pad-left20">Stock de la Tienda</h3>
+    <h3 class="b-naranja f-white pad-left20">Stock de las Ferias</h3>
+
     <div class="b-azul pad20 cont-elemts">
+
         <div class="search-box">
             <div class="input-wrapper">
                 <input class="input padInput" type="text" id="search-input-stock1" oninput="buscar2C3C('search-input-stock1','tablaStockProductos')" placeholder="Nombre prod. o cantidad">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
+
         <button class="btn-load orange" onclick="mostrarFormBuscador('formAddProdAlmacenTienda','lista-prod-agregados')"><span>Agregar producto</span></button>
+       
+        <!-- En la parte del HTML, modifica el select para agregar un ID y atributo data-selected -->
+        <div class="m-left">
+            <label class="f-white" for="filtroLugarVenta">Filtrar por:</label>
+            <select class="select pd" id="feria_select" name="feria_select" onchange="filtrarPorFerias(this.value)">
+                <option value="todos">Todos</option>
+                <?php 
+                // Obtener el valor del filtro desde la URL
+                $filtro_feria_seleccionado = isset($_GET['filtro_feria']) ? $_GET['filtro_feria'] : null;
+                
+                foreach ($ferias as $feria): 
+                    $selected = ($filtro_feria_seleccionado == $feria['id_feria']) ? 'selected' : '';
+                ?>
+                    <option value="<?= $feria['id_feria']; ?>" <?= $selected; ?>>
+                        <?= htmlspecialchars($feria['nombre_feria']); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
     </div>
 </div>
-
-
 
 <table class="tablaStyle top105" id="tablaStockProductos">
 <thead>
@@ -137,7 +182,7 @@ if ($resultProd->num_rows > 0) {
         <?php endforeach; ?>
     <?php else: ?>
         <tr>
-            <td colspan="7">No hay productos en el almacén de las ferias</td>
+            <td colspan="8">No hay productos en el almacén de las ferias</td>
         </tr>
     <?php endif; ?>
 </tbody>

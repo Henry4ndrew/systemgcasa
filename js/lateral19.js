@@ -67,7 +67,7 @@ function cargarPagina(nombreArchivo, actualizarHistorial = true, parametrosAdici
             localStorage.setItem('paginaParams', parametrosAdicionales);
             localStorage.setItem('paginaData', JSON.stringify(estadoActual));
             
-            console.log('Página cargada:', nombreArchivo, 'Parámetros:', parametrosAdicionales);
+            // console.log('Página cargada:', nombreArchivo, 'Parámetros:', parametrosAdicionales);
         })
         .catch(error => {
             console.error('Error al cargar la página:', error);

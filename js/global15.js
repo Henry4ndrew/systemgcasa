@@ -107,27 +107,44 @@ function formatearDecimal(precio) {
 
 
 // Script para mostrar formularios en general mostrarForm =========================================
-//AQUI PEGAR LAFUN CION MOSTRAR FORM
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    function mostrarForm(id){
+  const form = document.getElementById(id);
+  form.reset();
+  const txtForm = document.getElementById('txt-' + id);
+  if(id === 'formCliente'){
+    txtForm.textContent = "Registrar Cliente";
+    gestionarBtns('formCliente' , 'guardar');
+  } else if(id === 'formProducto'){
+     txtForm.textContent = "Crear producto";
+     document.getElementById("imagen").required = true;
+     document.getElementById('imagen').value = "";
+     imagenesSeleccionadas.items.clear();
+     document.getElementById('imagePreviewContainer').innerHTML = '';
+  } else if(id === 'formUser'){
+    txtForm.textContent = "Registrar Usuario";
+    gestionarBtns('formUser' , 'guardar');
+  } else if(id === 'formPortada'){
+     txtForm.textContent = "Agregar portada";
+     gestionarBtns('formPortada' , 'guardar');
+     limpiarImagen('imagen', 'areaImg');
+  } else if(id === 'formDetailProd'){
+     txtForm.textContent = "Agregar detalle al producto";
+     gestionarBtns('formDetailProd' , 'guardar');
+  } else if(id == 'formMateria'){
+     txtForm.textContent = "Crear materia prima";
+     gestionarBtns('formMateria' , 'guardar');
+     crearInputMedida('tipo_medida', 'mostrarMaterial_medida');
+      limpiarImagen('imagenMaterial', 'areaImgMaterial');
+  } else if(id === 'formBank'){
+     txtForm.textContent = "Registrar cuenta de banco";
+     gestionarBtns('formBank' , 'guardar');
+     document.getElementById("imagenQR").required = true;
+  } else if(id === 'formFerias'){
+      txtForm.textContent = "Registrar feria";
+      gestionarBtns('formFerias' , 'guardar');
+  }
+  form.style.display = 'block';
+}
 
 
 
@@ -443,6 +460,26 @@ function limpiarFormAcordeon(form = null) {
     });
 }
 
+
+//solo abre el panel acordeon
+function abrirPanel(idPestana) {
+    const panel = document.getElementById(idPestana);
+    const header = panel.previousElementSibling;
+
+    panel.classList.add("open");
+    header.classList.add("mostrando");
+
+    const alturaReal = panel.scrollHeight;
+    const alturaMaxima = window.innerHeight * 0.53;
+
+    if (alturaReal > alturaMaxima) {
+        panel.style.maxHeight = alturaMaxima + "px";
+        panel.style.overflowY = "auto";
+    } else {
+        panel.style.maxHeight = alturaReal + "px";
+        panel.style.overflowY = "hidden";
+    }
+}
 
 function desplazarPanel(idPestana) {
    const lista = document.getElementById('list-prod-details');

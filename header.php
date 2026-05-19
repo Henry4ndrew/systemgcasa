@@ -45,7 +45,7 @@ $permiso = $datos_usuario['permiso'];
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/31.css">
     <link rel="stylesheet" href="css/46f.css">
-     <link rel="stylesheet" href="css/sys11.css">
+     <link rel="stylesheet" href="css/sys12.css">
     <script>
         window.addEventListener("load", function () {
         document.body.style.visibility = "visible";

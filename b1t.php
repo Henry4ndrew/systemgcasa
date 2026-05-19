@@ -382,12 +382,13 @@ body {
     
 <!-- AAqui van los scripts -->
 <script src="js/lateral19.js"></script>
-<script src="js/global14.js"></script>
+<script src="js/global15.js"></script>
 <?php $ventaCotizVer = file_exists(__DIR__ . '/js/venta-cotiz13.js') ? filemtime(__DIR__ . '/js/venta-cotiz13.js') : time(); ?>
 <script src="js/venta-cotiz13.js?v=<?php echo $ventaCotizVer; ?>"></script>
 <script src="js/buscadores4.js"></script>
 <script src="js/hist-venta4.js"></script>
 <script src="js/stock-material-product22.js"></script>
+<script src="js/stock-feria.js"></script>
 <script src="js/cobros.js"></script>
 <script src="js/prod2.js"></script>
 <script src="js/usr-client3.js"></script>
@@ -399,127 +400,23 @@ body {
 
 
 
-<script>
-function mostrarFerias(valor) {
-    const contenedor = document.getElementById("contenedor-feria");
-    const selectFeria = document.getElementById("feria_select");
-    if (valor === "Feria") {
-        contenedor.style.display = "flex";
-        selectFeria.setAttribute("required", "required");
-        abrirPanel('pest2');
-    } else {
-        contenedor.style.display = "none";
-        selectFeria.removeAttribute("required");
-        selectFeria.value = "";
-    }
-}
-function editarCantProductFeria(producto) {
-    console.log(producto);
-    if (document.getElementById('formCantProduct')) {
-    plop('formCantProduct');
-    } else if (document.getElementById('formCantProductTienda')) {
-        plop('formCantProductTienda');
-    }
-    const productoSeleccionado = document.getElementById('producto-seleccionado');
-    
-    const precioFormateado = formatearDecimal(producto.precio);
-    if (producto) {
-
-        productoSeleccionado.innerHTML = `
-            <img src="${producto.ruta_imagen}" alt="${producto.nombre}" class="img-peq">
-            <div class="column" style="padding-left:7px;">
-                <h3>${producto.nombre || ''}</h2>
-                <p class="hora"><b>Cod:</b>${producto.codigo} - <b>Precio:</b> ${precioFormateado  || 0}</p>
-            </div>      
-            <input type="hidden" name="codigo" value="${producto.codigo}" readonly> 
-            <input type="hidden" name="idDetalle" value="${producto.id_detalle}" readonly>    
-            <input type="hidden" name="idFeria" value="${producto.id_feria}" readonly> 
-            <div class="detail-lateral">${producto.detalle}</div>
-        `;
-    } else {
-        productoSeleccionado.innerHTML = '<p class="error">Producto no encontrado</p>';
-    }
-        document.getElementById('cantidad-prod-actual').value = producto.cantidad;
-       
-}
 
 
-//solo abre el panel acordeon
-function abrirPanel(idPestana) {
-    const panel = document.getElementById(idPestana);
-    const header = panel.previousElementSibling;
-
-    panel.classList.add("open");
-    header.classList.add("mostrando");
-
-    const alturaReal = panel.scrollHeight;
-    const alturaMaxima = window.innerHeight * 0.53;
-
-    if (alturaReal > alturaMaxima) {
-        panel.style.maxHeight = alturaMaxima + "px";
-        panel.style.overflowY = "auto";
-    } else {
-        panel.style.maxHeight = alturaReal + "px";
-        panel.style.overflowY = "hidden";
-    }
-}
-</script>
 
 
-<script>
 
-    function mostrarForm(id){
-  const form = document.getElementById(id);
-  form.reset();
-  const txtForm = document.getElementById('txt-' + id);
-  if(id === 'formCliente'){
-    txtForm.textContent = "Registrar Cliente";
-    gestionarBtns('formCliente' , 'guardar');
-  } else if(id === 'formProducto'){
-     txtForm.textContent = "Crear producto";
-     document.getElementById("imagen").required = true;
-     document.getElementById('imagen').value = "";
-     imagenesSeleccionadas.items.clear();
-     document.getElementById('imagePreviewContainer').innerHTML = '';
-  } else if(id === 'formUser'){
-    txtForm.textContent = "Registrar Usuario";
-    gestionarBtns('formUser' , 'guardar');
-  } else if(id === 'formPortada'){
-     txtForm.textContent = "Agregar portada";
-     gestionarBtns('formPortada' , 'guardar');
-     limpiarImagen('imagen', 'areaImg');
-  } else if(id === 'formDetailProd'){
-     txtForm.textContent = "Agregar detalle al producto";
-     gestionarBtns('formDetailProd' , 'guardar');
-  } else if(id == 'formMateria'){
-     txtForm.textContent = "Crear materia prima";
-     gestionarBtns('formMateria' , 'guardar');
-     crearInputMedida('tipo_medida', 'mostrarMaterial_medida');
-      limpiarImagen('imagenMaterial', 'areaImgMaterial');
-  } else if(id === 'formBank'){
-     txtForm.textContent = "Registrar cuenta de banco";
-     gestionarBtns('formBank' , 'guardar');
-     document.getElementById("imagenQR").required = true;
-  } else if(id === 'formFerias'){
-      txtForm.textContent = "Registrar feria";
-      gestionarBtns('formFerias' , 'guardar');
-  }
-  form.style.display = 'block';
-}
 
-function editarFeria (idFeria, nombreFeria){
-    plop('formFerias');
 
-    gestionarBtns('formFerias' , 'editar');
-    const titulo = document.getElementById('txt-formFerias');
-    titulo.textContent = 'Editar nombre de feria';
 
-    document.getElementById('id-feria').value = idFeria;
-    document.getElementById('nombre_feria').value = nombreFeria;
-    document.getElementById('btn1-formFerias').style.display = 'none';
-    document.getElementById('btn2-formFerias').style.display = 'inline-block';
-}
-</script>
+
+
+
+
+
+
+
+
+
 
 
 
