@@ -390,7 +390,28 @@ function actualizarCarritoCount() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Agregar al carrito
+// Agregar al carrito - VERSIÓN MODIFICADA
 function agregarAlCarrito(producto, detalle) {
     const existingIndex = carrito.findIndex(item => 
         item.codigo === producto.codigo && 
@@ -432,7 +453,11 @@ function agregarAlCarrito(producto, detalle) {
             }
         });
     }
-    actualizarCarritoCount();
+    actualizarCarritoCount();  // Esta función ya existe
+    // *** LÍNEA AGREGADA: Notificar actualización al header ***
+    if (typeof window.notificarActualizacionCarrito === 'function') {
+        window.notificarActualizacionCarrito();
+    }
 }
 
 // Inicializar slider de imágenes

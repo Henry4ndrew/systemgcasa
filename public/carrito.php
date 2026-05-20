@@ -52,6 +52,21 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+    .pedido-detalle {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    .pedido-detalle::-webkit-scrollbar {
+        width: 6px;
+    }
+    .pedido-detalle::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    .pedido-detalle::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
     @media (max-width: 768px) {
         .cart-table {
             font-size: 12px;
@@ -145,6 +160,15 @@
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let celularFabrica = "<?php echo $celular_fabrica; ?>";
 let qrImage = "<?php echo $qr_info ? $qr_info['imagenQR'] : ''; ?>";
+
+// Función para notificar al header que el carrito ha cambiado
+function notificarActualizacionHeader() {
+    if (typeof window.actualizarContadoresCarrito === 'function') {
+        window.actualizarContadoresCarrito();
+    } else if (typeof window.parent.actualizarContadoresCarrito === 'function') {
+        window.parent.actualizarContadoresCarrito();
+    }
+}
 
 // Función para obtener la primera imagen de un producto
 async function obtenerImagenProducto(codigo) {
@@ -251,7 +275,7 @@ async function actualizarCarrito() {
                         <i class="fas fa-trash text-xs md:text-sm"></i>
                     </button>
                 </td>
-             </tr>
+            </tr>
         `;
     }
     
@@ -270,7 +294,7 @@ async function actualizarCarrito() {
     
     container.innerHTML = html;
     
-    // Event listeners para botones de cantidad
+    // Event listeners para botones de cantidad - MODIFICADO con notificación
     document.querySelectorAll('.cantidad-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const index = parseInt(btn.dataset.index);
@@ -285,16 +309,20 @@ async function actualizarCarrito() {
             
             localStorage.setItem('carrito', JSON.stringify(carrito));
             actualizarCarrito();
+            // Notificar al header sobre el cambio
+            notificarActualizacionHeader();
         });
     });
     
-    // Event listeners para botones de eliminar
+    // Event listeners para botones de eliminar - MODIFICADO con notificación
     document.querySelectorAll('.eliminar-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const index = parseInt(btn.dataset.index);
             carrito.splice(index, 1);
             localStorage.setItem('carrito', JSON.stringify(carrito));
             actualizarCarrito();
+            // Notificar al header sobre el cambio
+            notificarActualizacionHeader();
         });
     });
 }
@@ -334,6 +362,53 @@ function generarMensajeWhatsApp() {
     return encodeURIComponent(mensaje);
 }
 
+// Generar HTML de detalles del pedido para mostrar en el modal
+function generarDetallePedidoHTML() {
+    let total = 0;
+    let html = `
+        <div class="pedido-detalle">
+            <table class="min-w-full text-sm">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="text-left py-2 px-2">Producto</th>
+                        <th class="text-left py-2 px-2">Medida</th>
+                        <th class="text-center py-2 px-2">Cant.</th>
+                        <th class="text-right py-2 px-2">Precio</th>
+                        <th class="text-right py-2 px-2">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+    
+    carrito.forEach((item) => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        html += `
+            <tr class="border-b">
+                <td class="py-2 px-2">${escapeHtml(item.nombre)}</td>
+                <td class="py-2 px-2">${escapeHtml(item.medida)}</td>
+                <td class="text-center py-2 px-2">${item.cantidad}</td>
+                <td class="text-right py-2 px-2">Bs ${item.precio.toFixed(2)}</td>
+                <td class="text-right py-2 px-2 font-semibold">Bs ${subtotal.toFixed(2)}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+                </tbody>
+                <tfoot class="bg-gray-50 font-bold">
+                    <tr>
+                        <td colspan="4" class="text-right py-2 px-2">TOTAL:</td>
+                        <td class="text-right py-2 px-2 text-blue-600 text-lg">Bs ${total.toFixed(2)}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    `;
+    
+    return { html, total };
+}
+
 // Función auxiliar para enviar pedido por WhatsApp
 function enviarPedidoWhatsApp(descargarQR = false) {
     const mensaje = generarMensajeWhatsApp();
@@ -346,6 +421,8 @@ function enviarPedidoWhatsApp(descargarQR = false) {
     
     window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, '_blank');
     
+    const pedidoInfo = generarDetallePedidoHTML();
+    
     if (descargarQR && qrImage) {
         setTimeout(() => {
             const link = document.createElement('a');
@@ -356,18 +433,81 @@ function enviarPedidoWhatsApp(descargarQR = false) {
             document.body.removeChild(link);
         }, 500);
         
+        // Mostrar modal con detalles del pedido y limpiar carrito
         Swal.fire({
-            title: '¡Proceso completado!',
-            html: '✅ Pedido enviado por WhatsApp<br>📱 Código QR descargado',
+            title: '✅ ¡Pedido Completado!',
+            html: `
+                <div class="text-left">
+                    <p class="text-green-600 font-semibold mb-3">✨ Tu pedido ha sido enviado exitosamente</p>
+                    <div class="bg-gray-50 p-3 rounded-lg mb-3">
+                        <p class="font-semibold mb-2">📋 Resumen del Pedido:</p>
+                        ${pedidoInfo.html}
+                    </div>
+                    <div class="mt-3 p-3 bg-purple-50 rounded-lg">
+                        <p class="text-sm text-purple-700">
+                            <i class="fas fa-download mr-1"></i> 
+                            El código QR se ha descargado automáticamente
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2">
+                            <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                            Se abrió WhatsApp para enviar el pedido
+                        </p>
+                    </div>
+                </div>
+            `,
             icon: 'success',
-            confirmButtonText: 'OK'
+            confirmButtonText: '<i class="fas fa-store"></i> Continuar comprando',
+            confirmButtonColor: '#3085d6',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Limpiar carrito
+                carrito = [];
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                actualizarCarrito();
+                // Notificar al header sobre el cambio
+                notificarActualizacionHeader();
+                // Redirigir a la tienda
+                window.location.href = 'tienda-virtual.php';
+            }
         });
     } else {
+        // Mostrar modal con detalles del pedido y limpiar carrito
         Swal.fire({
-            title: '¡Pedido enviado!',
-            text: 'Hemos abierto WhatsApp. Envía el mensaje para confirmar tu pedido.',
+            title: '✅ ¡Pedido Completado!',
+            html: `
+                <div class="text-left">
+                    <p class="text-green-600 font-semibold mb-3">✨ Tu pedido ha sido enviado exitosamente</p>
+                    <div class="bg-gray-50 p-3 rounded-lg mb-3">
+                        <p class="font-semibold mb-2">📋 Resumen del Pedido:</p>
+                        ${pedidoInfo.html}
+                    </div>
+                    <div class="mt-3 p-3 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-blue-700">
+                            <i class="fab fa-whatsapp text-green-500 mr-1"></i>
+                            Se abrió WhatsApp para enviar el pedido
+                        </p>
+                        <p class="text-xs text-gray-500 mt-2">
+                            Por favor, completa tus datos y envía el mensaje
+                        </p>
+                    </div>
+                </div>
+            `,
             icon: 'success',
-            confirmButtonText: 'OK'
+            confirmButtonText: '<i class="fas fa-store"></i> Continuar comprando',
+            confirmButtonColor: '#3085d6',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Limpiar carrito
+                carrito = [];
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                actualizarCarrito();
+                // Notificar al header sobre el cambio
+                notificarActualizacionHeader();
+                // Redirigir a la tienda
+                window.location.href = 'tienda-virtual.php';
+            }
         });
     }
 }
@@ -524,6 +664,11 @@ document.addEventListener('DOMContentLoaded', () => {
             qrModal.classList.remove('active');
         }
     });
+    
+    // Notificar al header al cargar la página para sincronizar contadores
+    setTimeout(() => {
+        notificarActualizacionHeader();
+    }, 100);
 });
 </script>
 
