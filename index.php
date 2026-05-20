@@ -1,349 +1,520 @@
 <?php
- session_start();
+  $base_url = 'public/'; 
+  $base_url2 = ''; 
+  $title = 'GcasaClub';
+  include 'public/head.php';
+
+  require 'includes/conexion.php';
+
+  // Función para limpiar la ruta de la imagen
+  function limpiarRuta($ruta) {
+      // Eliminar '../' de la ruta
+      $ruta = str_replace('../', '', $ruta);
+      // Eliminar './' si existe
+      $ruta = str_replace('./', '', $ruta);
+      return $ruta;
+  }
+
+  // Obtener las portadas de la base de datos
+  $query = "SELECT id, ruta_img, titulo, descripcion FROM portada ORDER BY id ASC";
+  $result = mysqli_query($conexion, $query);
+  
+  $portadas = [];
+  if ($result && mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          // Limpiar la ruta de la imagen
+          $row['ruta_img'] = limpiarRuta($row['ruta_img']);
+          $portadas[] = $row;
+      }
+  }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Iniciar sesión</title>
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Tangerine&family=Mulish&display=swap" rel="stylesheet">
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
 
-<body>
-
-
-    <form action="actions/login.php" method="post">
-
-        <img src="img/logoGcasaclub.avif" alt="logo G casa club" class="logo-login">
-
-        <?php
-        if (isset($_SESSION['mensaje'])) {
-            echo "<div class='notification'>{$_SESSION['mensaje']}</div>";
-            unset($_SESSION['mensaje']);
-        }
-        ?>
-
-        <div class="elem centrar">
-            <i class="fas fa-user icon-lateral"></i>
-            <input class="input" type="text" placeholder="Usuario" name="usuario" required>
-        </div>
-
-        <div class="elem centrar">
-            <i class="fas fa-lock icon-lateral"></i>
-            <input class="input" type="password" placeholder="Contraseña" name="contrasena" required>
-        </div>
-
-        <button class="btn-load orange" type="submit">
-            <span>Iniciar sesión</span>
-        </button>
-
-    </form>
-
-</body>
-</html>
-
-
+<!-- Estilos para el carrusel - FULL WIDTH -->
 <style>
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Mulish', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('img/fondoInicioSesion.avif') no-repeat center center fixed;
-    background-size: cover;
-    padding: 20px;
-    position: relative;
-}
-
-/* Capa de superposición para mejorar legibilidad */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-form {
-    background: 
-        /* Fondo base con gradiente */
-        linear-gradient(135deg, #1e3a5f, #2c5282, #4a7bac, #2c5282, #1e3a5f),
-        /* Capa brillante animada */
-        linear-gradient(90deg, 
-            transparent 0%, 
-            rgba(255, 255, 255, 0.1) 25%, 
-            rgba(255, 255, 255, 0.2) 50%, 
-            rgba(255, 255, 255, 0.1) 75%, 
-            transparent 100%);
-    background-size: cover, 200% 100%;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 450px;
-    position: relative;
-    z-index: 2;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    overflow: hidden;
-}
-
-/* Crear elemento pseudo para la animación de brillo */
-form::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    animation: brilloMovimiento 3s infinite linear;
-    z-index: 1;
-}
-
-@keyframes brilloMovimiento {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
-.logo-login {
-    display: block;
-    width: 280px;
-    margin: 0 auto 30px;
-    object-fit: cover;
-    border: 2px solid white;
-    background: rgb(0, 0, 0, 0.5);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    padding:0 10px;
-    border-radius: 15px;
-}
-
-.notification {
-    background: rgb(255,255,255, 0.3);
-    color: #c62828;
-    padding: 12px 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
-    text-align: center;
-    font-size: 0.9rem;
-    border-left: 4px solid #c62828;
-    animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.elem {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-.centrar {
-    display: flex;
-    align-items: center;
-}
-
-.icon-lateral {
-    position: absolute;
-    left: 15px;
-    color: #666;
-    font-size: 18px;
-    z-index: 1;
-}
-
-.input {
-    width: 100%;
-    padding: 16px 20px 16px 50px;
-    border: 2px solid #e0e0e0;
-    border-radius: 12px;
-    font-size: 16px;
-    font-family: 'Mulish', sans-serif;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.input:focus {
-    outline: none;
-    border: 1px solid rgba(176, 195, 1, 1); 
-    box-shadow: inset 0 0 0 2px #eeff00ff,  
-                0 0 0 3px rgba(255, 153, 0, 0.9); 
-}
-
-.input::placeholder {
-    color: #999;
-}
-
-.btn-load {
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, #b35400, #e67c00, #ff9800, #e67c00, #b35400);
-    background-size: 300% 300%;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Mulish', sans-serif;
-    position: relative;
-    overflow: hidden;
-    letter-spacing: 0.5px;
-    animation: gradientAnimation 8s ease infinite;
-}
-
-.btn-load:hover {
-    background: linear-gradient(135deg, #daa520, #ffd700, #b8860b, #ffdf00, #daa520);
-    background-size: 300% 300%;
-    box-shadow: 0 7px 20px rgba(255, 152, 0, 0.3);
-    animation: gradientAnimation 2s ease infinite;
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.btn-load:active {
-    transform: translateY(0);
-}
-
-.btn-load span {
-    position: relative;
-    z-index: 1;
-}
-
-/* Efecto de onda al hacer hover */
-.btn-load::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.btn-load:hover::after {
-    width: 300px;
-    height: 300px;
-}
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    form {
-        padding: 30px 25px;
-        max-width: 400px;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
     
-    .logo-login {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 25px;
+    .carousel-container {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        overflow: hidden;
+        border-radius: 0;
+        box-shadow: none;
     }
     
-    .input {
-        padding: 14px 18px 14px 45px;
-        font-size: 15px;
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
     }
     
-    .btn-load {
-        padding: 16px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 15px;
-    }
-    
-    form {
-        padding: 25px 20px;
-        border-radius: 15px;
+    .carousel-slide {
+        flex: 0 0 100%;
+        position: relative;
+        height: 100vh;
+        min-height: 500px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     
-    .logo-login {
-        width: 90px;
-        height: 90px;
-        margin-bottom: 20px;
+    /* Overlay para mejorar legibilidad del texto */
+    .carousel-slide .overlay {
+        position: absolute;
+        inset: 0;
     }
     
-    .notification {
-        font-size: 13px;
-        padding: 10px 15px;
-        margin-bottom: 20px;
+    /* Contenido centrado */
+    .carousel-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        z-index: 10;
+        width: 90%;
+        max-width: 800px;
+        padding: 2rem;
+        border-radius: 1rem;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
     }
     
-    .elem {
-        margin-bottom: 20px;
+    .carousel-content h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     
-    .input {
-        padding: 12px 15px 12px 40px;
-        font-size: 14px;
+    .carousel-content p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
     
-    .icon-lateral {
-        font-size: 16px;
-        left: 12px;
+    /* Botones de navegación */
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
-    .btn-load {
-        padding: 14px;
-        font-size: 15px;
+    .nav-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(-50%) scale(1.1);
     }
-}
-
-/* Para pantallas muy altas */
-@media (min-height: 800px) {
-    form {
-        margin: 40px 0;
+    
+    .nav-btn svg {
+        width: 24px;
+        height: 24px;
     }
-}
-
+    
+    .prev-btn {
+        left: 20px;
+    }
+    
+    .next-btn {
+        right: 20px;
+    }
+    
+    /* Dots/indicadores */
+    .dots-container {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 20;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        padding: 0;
+    }
+    
+    .dot:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(1.2);
+    }
+    
+    .dot.active {
+        width: 30px;
+        border-radius: 5px;
+        background: white;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .carousel-slide {
+            height: 100vh;
+            min-height: 400px;
+        }
+        
+        .carousel-content h2 {
+            font-size: 1.5rem;
+        }
+        
+        .carousel-content p {
+            font-size: 0.9rem;
+        }
+        
+        .nav-btn {
+            padding: 8px;
+        }
+        
+        .nav-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .prev-btn {
+            left: 10px;
+        }
+        
+        .next-btn {
+            right: 10px;
+        }
+        
+        .dots-container {
+            bottom: 20px;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 8px;
+            height: 8px;
+        }
+        
+        .dot.active {
+            width: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .carousel-content {
+            width: 95%;
+            padding: 1rem;
+        }
+        
+        .carousel-content h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .carousel-content p {
+            font-size: 0.8rem;
+        }
+    }
 </style>
+
+<!-- Carrusel Full Width -->
+<div class="carousel-container">
+    <div class="relative">
+        <!-- Carrusel track -->
+        <div class="carousel-track" id="carouselTrack">
+            <?php if (count($portadas) > 0): ?>
+                <!-- Portadas originales -->
+                <?php foreach ($portadas as $portada): ?>
+                    <div class="carousel-slide" style="background-image: url('<?php echo $portada['ruta_img']; ?>');">
+                        <div class="overlay"></div>
+                        <div class="carousel-content">
+                            <h2><?php echo htmlspecialchars($portada['titulo']); ?></h2>
+                            <p><?php echo htmlspecialchars($portada['descripcion']); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <!-- Clonamos el primer elemento para efecto infinito -->
+                <?php if (count($portadas) > 0): ?>
+                    <div class="carousel-slide" style="background-image: url('<?php echo $portadas[0]['ruta_img']; ?>');">
+                        <div class="overlay"></div>
+                        <div class="carousel-content">
+                            <h2><?php echo htmlspecialchars($portadas[0]['titulo']); ?></h2>
+                            <p><?php echo htmlspecialchars($portadas[0]['descripcion']); ?></p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php else: ?>
+                <div class="carousel-slide flex items-center justify-center bg-gray-200">
+                    <div class="overlay"></div>
+                    <p class="text-gray-500 text-lg">No hay portadas disponibles</p>
+                </div>
+            <?php endif; ?>
+        </div>
+        
+        <?php if (count($portadas) > 0): ?>
+            <!-- Botones de navegación -->
+            <button id="prevBtn" class="nav-btn prev-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button id="nextBtn" class="nav-btn next-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            
+            <!-- Indicadores/dots -->
+            <div class="dots-container" id="dotsContainer">
+                <?php foreach ($portadas as $index => $portada): ?>
+                    <button class="dot <?php echo $index === 0 ? 'active' : ''; ?>" 
+                            data-index="<?php echo $index; ?>">
+                    </button>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+
+
+
+<section>
+    <div>
+       <img src="img/categoria-hotel.avif">
+       <h2>Línea Hotelera</h2>
+    </div>   
+
+    <div>
+        <img src="img/hogar.avif">
+        <h2>Línea Hogar</h2>
+    </div> 
+
+    <div>
+        <img src="img/hospitalaria.avif">
+        <h2>Línea Hospitalaria</h2>
+    </div> 
+
+    <div>
+        <img src="img/ropaInstituciones.jpeg">
+        <h2>Línea institucional</h2>
+    </div> 
+</section>
+
+
+
+
+<?php if (count($portadas) > 0): ?>
+<script>
+    // Configuración del carrusel
+    const track = document.getElementById('carouselTrack');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    const totalRealSlides = <?php echo count($portadas); ?>;
+    const totalSlides = slides.length;
+    
+    let currentIndex = 0;
+    let autoScrollInterval;
+    let isTransitioning = false;
+    
+    // Configurar el ancho de cada slide
+    function setSlideWidth() {
+        const slideWidth = window.innerWidth;
+        slides.forEach(slide => {
+            slide.style.flex = `0 0 ${slideWidth}px`;
+        });
+        updateTrackPosition(false);
+    }
+    
+    // Actualizar posición del track
+    function updateTrackPosition(animate = true) {
+        if (animate) {
+            track.style.transition = 'transform 0.5s ease-in-out';
+        } else {
+            track.style.transition = 'none';
+        }
+        
+        const slideWidth = window.innerWidth;
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+    
+    // Actualizar dots activos
+    function updateDots() {
+        let realIndex = currentIndex % totalRealSlides;
+        dots.forEach((dot, i) => {
+            if (i === realIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Manejar el efecto infinito
+    function handleInfiniteScroll() {
+        if (currentIndex >= totalRealSlides) {
+            setTimeout(() => {
+                track.style.transition = 'none';
+                currentIndex = 0;
+                const slideWidth = window.innerWidth;
+                track.style.transform = `translateX(0px)`;
+                
+                // Forzar reflow
+                track.offsetHeight;
+                
+                // Restaurar transición
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                }, 50);
+            }, 500);
+        }
+        else if (currentIndex < 0) {
+            setTimeout(() => {
+                track.style.transition = 'none';
+                currentIndex = totalRealSlides - 1;
+                const slideWidth = window.innerWidth;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                
+                // Forzar reflow
+                track.offsetHeight;
+                
+                // Restaurar transición
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                }, 50);
+            }, 500);
+        }
+    }
+    
+    // Siguiente slide
+    function nextSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        currentIndex++;
+        updateTrackPosition(true);
+        updateDots();
+        
+        setTimeout(() => {
+            isTransitioning = false;
+            handleInfiniteScroll();
+        }, 500);
+        
+        resetAutoScroll();
+    }
+    
+    // Slide anterior
+    function prevSlide() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        currentIndex--;
+        updateTrackPosition(true);
+        updateDots();
+        
+        setTimeout(() => {
+            isTransitioning = false;
+            handleInfiniteScroll();
+        }, 500);
+        
+        resetAutoScroll();
+    }
+    
+    // Ir a un slide específico
+    function goToSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        currentIndex = index;
+        updateTrackPosition(true);
+        updateDots();
+        
+        setTimeout(() => {
+            isTransitioning = false;
+            handleInfiniteScroll();
+        }, 500);
+        
+        resetAutoScroll();
+    }
+    
+    // Auto-scroll
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+            nextSlide();
+        }, 5000);
+    }
+    
+    function resetAutoScroll() {
+        clearInterval(autoScrollInterval);
+        startAutoScroll();
+    }
+    
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+    
+    // Event listeners
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+    }
+    
+    // Event listeners para dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+    
+    // Pausar auto-scroll al pasar el mouse
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+        carouselContainer.addEventListener('mouseleave', startAutoScroll);
+    }
+    
+    // Ajustar al cambiar el tamaño de la ventana
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            setSlideWidth();
+            updateTrackPosition(false);
+            handleInfiniteScroll();
+        }, 250);
+    });
+    
+    // Inicializar
+    setSlideWidth();
+    startAutoScroll();
+    
+    // Soporte para teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
+    });
+</script>
+<?php endif; ?>
 
