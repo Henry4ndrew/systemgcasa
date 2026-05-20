@@ -48,6 +48,105 @@ if ($result) {
 }
 ?>
 
+<head>
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-93362N4ZZR"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-93362N4ZZR');
+        </script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WT9C3LTV');</script>
+        <!-- End Google Tag Manager -->
+        <meta name="facebook-domain-verification" content="suftldxcx8cnycathjjbal84aoik9v" />
+        <!-- Meta Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '979455517026737');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=979455517026737&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+    <meta name="description" content="Sábanas, Edredones, Almohadas, Cubrecamas, Especializado en Hoteles, Hogares e Instituciones. COTIZACIONES VÍA WHATSAPP">
+    <meta name="keywords" content="Ropa de Cama, Edredones, Juego de Sabanas">
+    <meta name="robots" content="index, all, follow">
+</head>
+
+
+<!-- Carrusel Full Width -->
+<div class="carousel-container">
+    <div class="relative">
+        <!-- Carrusel track -->
+        <div class="carousel-track" id="carouselTrack">
+            <?php if (count($portadas) > 0): ?>
+                <!-- Portadas originales -->
+                <?php foreach ($portadas as $portada): ?>
+                    <div class="carousel-slide" style="background-image: url('<?php echo $portada['ruta_img']; ?>');">
+                        <div class="overlay"></div>
+                        <div class="carousel-content">
+                            <h2><?php echo htmlspecialchars($portada['titulo']); ?></h2>
+                            <p><?php echo htmlspecialchars($portada['descripcion']); ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                <!-- Clonamos el primer elemento para efecto infinito -->
+                <?php if (count($portadas) > 0): ?>
+                    <div class="carousel-slide" style="background-image: url('<?php echo $portadas[0]['ruta_img']; ?>');">
+                        <div class="overlay"></div>
+                        <div class="carousel-content">
+                            <h2><?php echo htmlspecialchars($portadas[0]['titulo']); ?></h2>
+                            <p><?php echo htmlspecialchars($portadas[0]['descripcion']); ?></p>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php else: ?>
+                <div class="carousel-slide flex items-center justify-center bg-gray-200">
+                    <div class="overlay"></div>
+                    <p class="text-gray-500 text-lg">No hay portadas disponibles</p>
+                </div>
+            <?php endif; ?>
+        </div>
+        
+        <?php if (count($portadas) > 0): ?>
+            <!-- Botones de navegación -->
+            <button id="prevBtn" class="nav-btn prev-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button id="nextBtn" class="nav-btn next-btn">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            
+            <!-- Indicadores/dots -->
+            <div class="dots-container" id="dotsContainer">
+                <?php foreach ($portadas as $index => $portada): ?>
+                    <button class="dot <?php echo $index === 0 ? 'active' : ''; ?>" 
+                            data-index="<?php echo $index; ?>">
+                    </button>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
 <!-- Estilos para el carrusel - FULL WIDTH -->
 <style>
     * {
@@ -252,162 +351,7 @@ if ($result) {
     }
 </style>
 
-<!-- Carrusel Full Width -->
-<div class="carousel-container">
-    <div class="relative">
-        <!-- Carrusel track -->
-        <div class="carousel-track" id="carouselTrack">
-            <?php if (count($portadas) > 0): ?>
-                <!-- Portadas originales -->
-                <?php foreach ($portadas as $portada): ?>
-                    <div class="carousel-slide" style="background-image: url('<?php echo $portada['ruta_img']; ?>');">
-                        <div class="overlay"></div>
-                        <div class="carousel-content">
-                            <h2><?php echo htmlspecialchars($portada['titulo']); ?></h2>
-                            <p><?php echo htmlspecialchars($portada['descripcion']); ?></p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-                <!-- Clonamos el primer elemento para efecto infinito -->
-                <?php if (count($portadas) > 0): ?>
-                    <div class="carousel-slide" style="background-image: url('<?php echo $portadas[0]['ruta_img']; ?>');">
-                        <div class="overlay"></div>
-                        <div class="carousel-content">
-                            <h2><?php echo htmlspecialchars($portadas[0]['titulo']); ?></h2>
-                            <p><?php echo htmlspecialchars($portadas[0]['descripcion']); ?></p>
-                        </div>
-                    </div>
-                <?php endif; ?>
-            <?php else: ?>
-                <div class="carousel-slide flex items-center justify-center bg-gray-200">
-                    <div class="overlay"></div>
-                    <p class="text-gray-500 text-lg">No hay portadas disponibles</p>
-                </div>
-            <?php endif; ?>
-        </div>
-        
-        <?php if (count($portadas) > 0): ?>
-            <!-- Botones de navegación -->
-            <button id="prevBtn" class="nav-btn prev-btn">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            <button id="nextBtn" class="nav-btn next-btn">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
-            
-            <!-- Indicadores/dots -->
-            <div class="dots-container" id="dotsContainer">
-                <?php foreach ($portadas as $index => $portada): ?>
-                    <button class="dot <?php echo $index === 0 ? 'active' : ''; ?>" 
-                            data-index="<?php echo $index; ?>">
-                    </button>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-    </div>
-</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <style>
-        /* transiciones y efectos suaves */
-        a, button, .card-hover {
-            transition: all 0.2s ease;
-        }
-        .btn-hover-scale:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
-        }
-        .img-hover-grow {
-            transition: transform 0.3s ease;
-        }
-        .group:hover .img-hover-grow {
-            transform: scale(1.02);
-        }
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .video-overlay {
-            position: relative;
-            border-radius: 1.5rem;
-            overflow: hidden;
-        }
-        video {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-        .form-control-focus:focus {
-            outline: none;
-            ring: 2px solid #3b82f6;
-            border-color: #3b82f6;
-        }
-        .center-image {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        @media (max-width: 768px) {
-            .grid-responsive {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
-        }
-    </style>
 </head>
 <body class="antialiased">
 
@@ -523,7 +467,55 @@ if ($result) {
                 <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
             </div>
         </section>
+    <style>
+        /* transiciones y efectos suaves */
+        a, button, .card-hover {
+            transition: all 0.2s ease;
+        }
+        .btn-hover-scale:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+        }
+        .img-hover-grow {
+            transition: transform 0.3s ease;
+        }
+        .group:hover .img-hover-grow {
+            transform: scale(1.02);
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .video-overlay {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+        }
+        video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .form-control-focus:focus {
+            outline: none;
+            ring: 2px solid #3b82f6;
+            border-color: #3b82f6;
+        }
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (max-width: 768px) {
+            .grid-responsive {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+        }
+    </style>
 
+    
  
   <!-- REDES SOCIALES -->
 <?php 
@@ -671,49 +663,6 @@ if (existeDatoEmpresa('celular_tienda')) {
 
 
 <?php include 'public/foot.php'; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

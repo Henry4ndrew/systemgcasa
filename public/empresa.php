@@ -17,17 +17,40 @@
       }
   }
 
-  // Obtener datos de la empresa desde datos_globales (ya debería estar disponible)
-  // Si no, hacemos la consulta
   if (!isset($datos_empresa)) {
       $queryDatos = "SELECT direccion_fabrica, celular_fabrica, email FROM datos LIMIT 1";
       $resultDatos = $conexion->query($queryDatos);
       $datos_empresa = $resultDatos ? $resultDatos->fetch_assoc() : [];
   }
 ?>
+<head>
+          <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-93362N4ZZR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-93362N4ZZR');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),
+            dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WT9C3LTV');
+     </script>
+</head>
+
+
+
 
 <style>
-    /* Estilos adicionales para la página empresa */
     .value-card {
         transition: all 0.3s ease;
     }
