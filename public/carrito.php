@@ -2,9 +2,10 @@
   $base_url = ''; 
   $base_url2 = '../'; 
   $title = 'Mi Carrito';
+  require '../includes/conexion.php';
+
   include 'head.php';
 
-  require '../includes/conexion.php';
 
   // Obtener datos de la tienda
   $query_datos = "SELECT celular_fabrica FROM datos LIMIT 1";
@@ -672,4 +673,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<?php include 'footer.php'; ?>
+<?php include 'foot.php'; ?>

@@ -1,3 +1,7 @@
+<?php 
+
+require 'datos_globales.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,12 +30,17 @@
         .bg-orange-meta {
             background: var(--orange-meta);
         }
-        
         .bg-blue-meta {
             background: var(--blue-meta);
-        }
-        
+        }  
         .bg-gold {
+            background: var(--gold);
+        }
+        .bg-orange-meta-gold{
+           background: var(--orange-meta); 
+           transition all 0.3s ease;
+        }
+        .bg-orange-meta-gold:hover{
             background: var(--gold);
         }
         

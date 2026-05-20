@@ -2,9 +2,9 @@
   $base_url = ''; 
   $base_url2 = '../'; 
   $title = 'Tienda virtual';
+  require '../includes/conexion.php';
   include 'head.php';
 
-  require '../includes/conexion.php';
 
   // Verificar conexión
   if (!$conexion) {
@@ -829,5 +829,5 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <?php
-  include 'footer.php';
+  include 'foot.php';
 ?>

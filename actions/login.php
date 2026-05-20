@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($usuario) || empty($contrasena)) {
         $_SESSION['mensaje'] = "Por favor, complete todos los campos.";
-        header("Location: ../index.php");
+        header("Location: ../login.php");
         exit;
     }
     // Agregamos "AND estado = 'activo'" en la consulta
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $_SESSION['mensaje'] = "Usuario inhabilitado.";
     }
-    header("Location: ../index.php");
+    header("Location: ../login.php");
     exit;
 }
 ?>
